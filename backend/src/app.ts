@@ -23,7 +23,7 @@ export const createApp = (): Application => {
   const allowedOrigins = [env.WEB_ORIGIN, 'http://localhost:5173', 'http://127.0.0.1:5173'];
   app.use(
     cors({
-      origin: (origin, callback) => {
+      origin: (origin: any, callback: any) => {
         if (!origin) return callback(null, true); // Mobile apps / tools
         if (allowedOrigins.includes(origin) || origin.startsWith('http://localhost:') || origin.startsWith('http://192.168.')) {
           return callback(null, true);
