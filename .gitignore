@@ -40,3 +40,4 @@ coverage/
 *.key
 *.mobileprovision
 *.orig.*
+mobile/android/
