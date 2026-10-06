@@ -30,7 +30,7 @@ export const RootNavigator: React.FC = () => {
           options={{ headerShown: false }}
         />
       ) : (
-        <>
+        <Stack.Group>
           <Stack.Screen
             name="Main"
             component={MainTabNavigator}
@@ -54,7 +54,7 @@ export const RootNavigator: React.FC = () => {
               headerTintColor: '#4f46e5',
             })}
           />
-        </>
+        </Stack.Group>
       )}
     </Stack.Navigator>
   );

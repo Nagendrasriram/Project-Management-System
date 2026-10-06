@@ -128,9 +128,10 @@ export const RegisterScreen: React.FC<Props> = ({ navigation }) => {
             style={styles.switchAuthButton}
             onPress={() => navigation.navigate('Login')}
           >
-            <Text style={styles.switchAuthText}>
-              Already have an account? <Text style={styles.switchAuthHighlight}>Sign In</Text>
-            </Text>
+            <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+              <Text style={styles.switchAuthText}>Already have an account? </Text>
+              <Text style={styles.switchAuthHighlight}>Sign In</Text>
+            </View>
           </TouchableOpacity>
         </View>
       </ScrollView>

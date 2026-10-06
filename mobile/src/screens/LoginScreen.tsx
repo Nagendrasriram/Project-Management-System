@@ -136,9 +136,10 @@ export const LoginScreen: React.FC<Props> = ({ navigation }) => {
             style={styles.switchAuthButton}
             onPress={() => navigation.navigate('Register')}
           >
-            <Text style={styles.switchAuthText}>
-              Do not have an account? <Text style={styles.switchAuthHighlight}>Sign up</Text>
-            </Text>
+            <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+              <Text style={styles.switchAuthText}>Do not have an account? </Text>
+              <Text style={styles.switchAuthHighlight}>Sign up</Text>
+            </View>
           </TouchableOpacity>
         </View>
 
