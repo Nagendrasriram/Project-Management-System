@@ -2,6 +2,15 @@
 
 A production-grade, monorepo Project Management System featuring a unified REST API serving a modern responsive web client and an Android-first Expo mobile application.
 
+## 🚀 Live Deployments
+
+- 🌐 **Web Application (Vercel)**: [https://project-management-system-olive-theta.vercel.app](https://project-management-system-olive-theta.vercel.app)
+- ⚙️ **Backend REST API (Render)**: [https://project-management-api-c38i.onrender.com](https://project-management-api-c38i.onrender.com)
+- 📖 **Interactive Swagger Documentation**: [https://project-management-api-c38i.onrender.com/api/docs](https://project-management-api-c38i.onrender.com/api/docs)
+- 🩺 **Health Check**: [https://project-management-api-c38i.onrender.com/health](https://project-management-api-c38i.onrender.com/health)
+- 🗄️ **Database**: Supabase Cloud PostgreSQL
+- 📦 **GitHub Repository**: [https://github.com/Nagendrasriram/Project-Management-System](https://github.com/Nagendrasriram/Project-Management-System)
+
 ---
 
 ## 🏛️ Architecture Overview
