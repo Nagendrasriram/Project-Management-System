@@ -43,8 +43,9 @@ export const createApp = (): Application => {
   // HTTP Request Logging
   app.use(httpLogger);
 
-  // Root health endpoint
+  // Root health endpoints
   app.use('/health', healthRoutes);
+  app.use('/healthz', healthRoutes);
 
   // API router
   app.use('/api', apiRoutes);
