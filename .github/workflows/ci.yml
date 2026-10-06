@@ -52,6 +52,7 @@ jobs:
         run: |
           npx --workspace=@project-mgmt/backend prisma generate
           npx --workspace=@project-mgmt/backend prisma db push
+          npm run db:seed
 
       - name: Run Backend Tests
         run: npm run test:backend

@@ -39,6 +39,9 @@
     "yamljs": "^0.3.0",
     "zod": "^3.23.8"
   },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "devDependencies": {
     "@types/supertest": "^6.0.2",
     "pino-pretty": "^11.1.0",

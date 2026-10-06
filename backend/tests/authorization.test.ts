@@ -11,18 +11,40 @@ describe('User Authorization Isolation Tests', () => {
   let aliceTaskId = '';
 
   beforeAll(async () => {
-    // Log in alice
-    const aliceRes = await request(app).post('/api/auth/login').send({
+    // Log in alice (register if not yet existing)
+    let aliceRes = await request(app).post('/api/auth/login').send({
       email: 'alice@example.com',
       password: 'Password123!',
     });
+    if (aliceRes.status !== 200) {
+      await request(app).post('/api/auth/register').send({
+        fullName: 'Alice Smith',
+        email: 'alice@example.com',
+        password: 'Password123!',
+      });
+      aliceRes = await request(app).post('/api/auth/login').send({
+        email: 'alice@example.com',
+        password: 'Password123!',
+      });
+    }
     aliceToken = aliceRes.body.token;
 
-    // Log in bob
-    const bobRes = await request(app).post('/api/auth/login').send({
+    // Log in bob (register if not yet existing)
+    let bobRes = await request(app).post('/api/auth/login').send({
       email: 'bob@example.com',
       password: 'Password123!',
     });
+    if (bobRes.status !== 200) {
+      await request(app).post('/api/auth/register').send({
+        fullName: 'Bob Johnson',
+        email: 'bob@example.com',
+        password: 'Password123!',
+      });
+      bobRes = await request(app).post('/api/auth/login').send({
+        email: 'bob@example.com',
+        password: 'Password123!',
+      });
+    }
     bobToken = bobRes.body.token;
 
     // Alice creates a private project

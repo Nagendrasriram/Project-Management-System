@@ -10,10 +10,21 @@ describe('Projects, Tasks & Dashboard Endpoints', () => {
   let createdTaskId = '';
 
   beforeAll(async () => {
-    const res = await request(app).post('/api/auth/login').send({
+    let res = await request(app).post('/api/auth/login').send({
       email: 'alice@example.com',
       password: 'Password123!',
     });
+    if (res.status !== 200) {
+      await request(app).post('/api/auth/register').send({
+        fullName: 'Alice Smith',
+        email: 'alice@example.com',
+        password: 'Password123!',
+      });
+      res = await request(app).post('/api/auth/login').send({
+        email: 'alice@example.com',
+        password: 'Password123!',
+      });
+    }
     token = res.body.token;
   });
 
