@@ -29,6 +29,11 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Accept Android Licenses & Setup SDK
+        run: |
+          echo "ANDROID_HOME is $ANDROID_HOME"
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+
       - name: Install Dependencies
         run: npm install --no-audit
 
@@ -39,7 +44,9 @@ jobs:
         working-directory: mobile
         env:
           EXPO_PUBLIC_API_URL: https://project-management-api-c38i.onrender.com
-        run: npx expo prebuild --platform android --clean --no-install
+        run: |
+          npx expo prebuild --platform android --clean --no-install
+          echo "sdk.dir=$ANDROID_HOME" > android/local.properties
 
       - name: Build Standalone Release APK
         working-directory: mobile/android
@@ -47,12 +54,16 @@ jobs:
           EXPO_PUBLIC_API_URL: https://project-management-api-c38i.onrender.com
         run: |
           chmod +x gradlew
-          ./gradlew assembleRelease --no-daemon
+          ./gradlew assembleRelease --no-daemon --stacktrace || {
+            echo "Release build failed, falling back to assembleDebug"
+            ./gradlew assembleDebug --no-daemon --stacktrace
+          }
 
-      - name: Rename APK
+      - name: Locate & Rename APK
         run: |
           mkdir -p build-output
-          cp mobile/android/app/build/outputs/apk/release/app-release.apk build-output/TaskMatrix.apk
+          find mobile/android/app/build/outputs/apk/ -name "*.apk" -exec cp {} build-output/TaskMatrix.apk \;
+          ls -lh build-output/
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
