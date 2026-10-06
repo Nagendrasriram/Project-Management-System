@@ -26,6 +26,12 @@ jobs:
           --health-timeout 5s
           --health-retries 5
 
+    env:
+      DATABASE_URL: postgresql://postgres:postgrespassword@localhost:5432/project_management?schema=public
+      DIRECT_URL: postgresql://postgres:postgrespassword@localhost:5432/project_management?schema=public
+      JWT_SECRET: ci-jwt-secret-testing-minimum-32-characters
+      NODE_ENV: test
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -43,17 +49,11 @@ jobs:
         run: npm run build:shared
 
       - name: Generate Prisma Client & Migrate DB
-        env:
-          DATABASE_URL: postgresql://postgres:postgrespassword@localhost:5432/project_management?schema=public
-          JWT_SECRET: ci-jwt-secret-testing-minimum-32-characters
         run: |
           npx --workspace=@project-mgmt/backend prisma generate
           npx --workspace=@project-mgmt/backend prisma db push
 
       - name: Run Backend Tests
-        env:
-          DATABASE_URL: postgresql://postgres:postgrespassword@localhost:5432/project_management?schema=public
-          JWT_SECRET: ci-jwt-secret-testing-minimum-32-characters
         run: npm run test:backend
 
       - name: Typecheck Mobile App
