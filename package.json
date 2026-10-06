@@ -1,0 +1,29 @@
+{
+  "name": "project-management-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full Stack Project Management System (Web + Mobile + API)",
+  "workspaces": [
+    "shared",
+    "backend",
+    "web",
+    "mobile"
+  ],
+  "scripts": {
+    "build:shared": "npm run build --workspace=shared",
+    "build:backend": "npm run build --workspace=backend",
+    "build:web": "npm run build --workspace=web",
+    "build": "npm run build:shared && npm run build:backend && npm run build:web",
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:web": "npm run dev --workspace=web",
+    "dev:mobile": "npm run start --workspace=mobile",
+    "test:backend": "npm run test --workspace=backend",
+    "test": "npm run test:backend",
+    "db:migrate": "npm run db:migrate --workspace=backend",
+    "db:seed": "npm run db:seed --workspace=backend",
+    "db:studio": "npm run db:studio --workspace=backend"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}
