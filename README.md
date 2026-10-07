@@ -5,7 +5,7 @@ A production-grade, monorepo Project Management System featuring a unified REST 
 ## 🚀 Live Deployments
 
 - 🌐 **Web Application (Vercel)**: [https://project-management-system-olive-theta.vercel.app](https://project-management-system-olive-theta.vercel.app)
-- 📱 **Android Mobile App (Direct APK Download)**: [Download TaskMatrix.apk](https://expo.dev/artifacts/eas/tEvHYi1w9p99JC9sL2Paffs4GZHCNTQ6dIrdQHzmcHo.apk) ([EAS Build Page](https://expo.dev/accounts/erripulkas-team/projects/erri-pulka/builds/d313f4c5-bed4-479e-8eab-31272a306b5f))
+- 📱 **Android Mobile App (Direct APK Download)**: [Download TaskMatrix.apk](https://expo.dev/artifacts/eas/8_FJtXPQkMgLglgD7k-8tFnL3lkAtA28e7bDNBxEyxU.apk) ([EAS Build Page](https://expo.dev/accounts/erripulkas-team/projects/erri-pulka/builds/8f5002ef-0699-428e-b4c1-1662d255a180))
 - ⚙️ **Backend REST API (Render)**: [https://project-management-api-c38i.onrender.com](https://project-management-api-c38i.onrender.com)
 - 📖 **Interactive Swagger Documentation**: [https://project-management-api-c38i.onrender.com/api/docs](https://project-management-api-c38i.onrender.com/api/docs)
 - 🩺 **Health Check**: [https://project-management-api-c38i.onrender.com/health](https://project-management-api-c38i.onrender.com/health)
