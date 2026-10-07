@@ -5,12 +5,54 @@ A production-grade, monorepo Project Management System featuring a unified REST 
 ## 🚀 Live Deployments
 
 - 🌐 **Web Application (Vercel)**: [https://project-management-system-olive-theta.vercel.app](https://project-management-system-olive-theta.vercel.app)
-- 📱 **Android Mobile App (Direct APK Download)**: [Download TaskMatrix.apk](https://expo.dev/artifacts/eas/8_FJtXPQkMgLglgD7k-8tFnL3lkAtA28e7bDNBxEyxU.apk) ([EAS Build Page](https://expo.dev/accounts/erripulkas-team/projects/erri-pulka/builds/8f5002ef-0699-428e-b4c1-1662d255a180))
+- 📱 **Android Mobile App (Direct APK Download)**: [Download TaskMatrix.apk (GitHub Release v1.0.0)](https://github.com/Nagendrasriram/Project-Management-System/releases/download/v1.0.0/TaskMatrix.apk) | [EAS Mirror](https://expo.dev/artifacts/eas/8_FJtXPQkMgLglgD7k-8tFnL3lkAtA28e7bDNBxEyxU.apk)
 - ⚙️ **Backend REST API (Render)**: [https://project-management-api-c38i.onrender.com](https://project-management-api-c38i.onrender.com)
 - 📖 **Interactive Swagger Documentation**: [https://project-management-api-c38i.onrender.com/api/docs](https://project-management-api-c38i.onrender.com/api/docs)
 - 🩺 **Health Check**: [https://project-management-api-c38i.onrender.com/health](https://project-management-api-c38i.onrender.com/health)
 - 🗄️ **Database**: Supabase Cloud PostgreSQL
 - 📦 **GitHub Repository**: [https://github.com/Nagendrasriram/Project-Management-System](https://github.com/Nagendrasriram/Project-Management-System)
+
+---
+
+## 📱 Download & Try Android App (TaskMatrix)
+
+The standalone Android app is built, verified, and connected to the live cloud backend. You can install and try it directly on your Android phone without any developer setup!
+
+<p align="center">
+  <img src="docs/apk-download-qr.png" alt="Scan QR Code to Download TaskMatrix APK" width="160" />
+  <br />
+  <sub><b>Scan with your phone camera to download APK</b></sub>
+</p>
+
+### 📥 Download Links
+| Source | Link | Notes |
+| :--- | :--- | :--- |
+| **GitHub Releases (Recommended)** | [Download TaskMatrix.apk (v1.0.0)](https://github.com/Nagendrasriram/Project-Management-System/releases/download/v1.0.0/TaskMatrix.apk) | Official release asset hosted on GitHub |
+| **Expo EAS Cloud CDN** | [Download TaskMatrix.apk (EAS Mirror)](https://expo.dev/artifacts/eas/8_FJtXPQkMgLglgD7k-8tFnL3lkAtA28e7bDNBxEyxU.apk) | Direct build artifact from EAS Build |
+| **All Releases** | [GitHub Releases Page](https://github.com/Nagendrasriram/Project-Management-System/releases) | Release notes, changelog & assets |
+
+### 📲 Installation Instructions (Android)
+1. **Download**: Tap either download link above on your Android phone (or scan the QR code).
+2. **Install**: Tap the downloaded `TaskMatrix.apk` notification or find it in your phone's *Downloads* folder. If Android displays *"For your security, your phone is not allowed to install unknown apps from this source"*, tap **Settings** and enable **Allow from this source**.
+3. **Launch**: Tap **Install** and then **Open**.
+
+### 🔑 Try It Out (Instant Demo Credentials)
+The app comes with demo buttons on the login screen for 1-tap testing:
+
+- **Option 1 (One-Tap Autofill)**: On the login screen, tap the **Alice (2 Projects)** button, then tap **Sign In**.
+- **Option 2 (Manual Login)**:
+  - **Email**: `alice@example.com`
+  - **Password**: `Password123!`
+  - *(Or test Bob: `bob@example.com` / `Password123!` to test multi-tenant isolation)*
+- **Option 3 (Sign Up)**: Tap **Sign up**, enter your name, email, and password (min 8 chars) to create a brand-new account.
+
+### 🌟 Features to Test on Mobile
+- 📊 **Real-time Dashboard**: Overview of total projects, tasks, completion rates, and status metrics.
+- 📁 **Project Management**: Create, view, edit, and delete projects.
+- ✅ **Task Management**: Create tasks with priorities (`LOW`, `MEDIUM`, `HIGH`, `URGENT`), statuses (`TODO`, `IN_PROGRESS`, `DONE`), and due dates.
+- 🔍 **Filtering & Search**: Filter tasks by status and priority on the fly.
+- 🔄 **Real-Time Cross-Client Sync**: Create a task on your phone and refresh the [Web Application](https://project-management-system-olive-theta.vercel.app) to see it updated live!
+- 🔒 **Secure Keystore Authentication**: JWTs are safely encrypted in Android Keystore via `expo-secure-store`.
 
 ---
 

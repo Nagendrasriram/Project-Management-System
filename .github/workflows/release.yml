@@ -1,0 +1,53 @@
+name: Release APK
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Publish Android Standalone APK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download Standalone Android APK
+        run: |
+          curl -L -o TaskMatrix.apk "https://expo.dev/artifacts/eas/8_FJtXPQkMgLglgD7k-8tFnL3lkAtA28e7bDNBxEyxU.apk"
+          ls -lh TaskMatrix.apk
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: "TaskMatrix Android Release ${{ github.ref_name }}"
+          body: |
+            ## 📱 TaskMatrix Android Standalone App
+
+            Production-ready standalone Android application (`TaskMatrix.apk`) connected to the live Supabase database and Render API.
+
+            ### ⬇️ Download & Try
+            Download the **`TaskMatrix.apk`** below to install directly on any Android device.
+
+            ### 🚀 Quick Testing Guide
+            1. **Install**: Open the downloaded `TaskMatrix.apk` and tap Install (enable "Install unknown apps" if prompted).
+            2. **Login / Register**:
+               - **Demo User**: Tap the **Alice (2 Projects)** quick fill button and tap **Sign In** (or enter `alice@example.com` / `Password123!`).
+               - **Sign Up**: Tap **Sign Up** to create a custom account.
+            3. **Features to Try**:
+               - **Project Dashboard**: View project overview, task completion statistics, and status metrics.
+               - **Project Management**: Create, view, update, and manage projects.
+               - **Task Board & List**: Filter tasks by status (TODO, IN_PROGRESS, DONE) and priority (LOW, MEDIUM, HIGH, URGENT).
+               - **Multi-Client Sync**: Changes sync instantly across the mobile app, web app, and database!
+
+            ### 🌐 Live Ecosystem
+            - 🌐 **Web Client**: [https://project-management-system-olive-theta.vercel.app](https://project-management-system-olive-theta.vercel.app)
+            - ⚙️ **Backend REST API**: [https://project-management-api-c38i.onrender.com](https://project-management-api-c38i.onrender.com)
+            - 📖 **Interactive Swagger Docs**: [https://project-management-api-c38i.onrender.com/api/docs](https://project-management-api-c38i.onrender.com/api/docs)
+          files: TaskMatrix.apk
