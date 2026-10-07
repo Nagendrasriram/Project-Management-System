@@ -21,9 +21,13 @@
     "test": "npm run test:backend",
     "db:migrate": "npm run db:migrate --workspace=backend",
     "db:seed": "npm run db:seed --workspace=backend",
-    "db:studio": "npm run db:studio --workspace=backend"
+    "db:studio": "npm run db:studio --workspace=backend",
+    "postinstall": "node scripts/patch-expo-gradle.js"
   },
   "dependencies": {
+    "expo": "~51.0.0",
+    "react": "18.2.0",
+    "react-native": "0.74.5",
     "typescript": "^5.4.5"
   }
 }
