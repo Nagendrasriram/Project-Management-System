@@ -47,7 +47,14 @@ export const RegisterScreen: React.FC<Props> = ({ navigation }) => {
       setLoading(true);
       await registerAuth(validation.data);
     } catch (err: any) {
-      const msg = err.response?.data?.error?.message || 'Registration failed. Please try again.';
+      let msg = 'Registration failed. Please try again.';
+      if (err.code === 'ECONNABORTED' || err.message?.toLowerCase().includes('timeout')) {
+        msg = 'Connection timed out. The server may be waking up, please try again.';
+      } else if (!err.response) {
+        msg = 'Unable to connect to server. Please check your internet connection.';
+      } else if (err.response?.data?.error?.message) {
+        msg = err.response.data.error.message;
+      }
       setServerError(msg);
     } finally {
       setLoading(false);

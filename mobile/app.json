@@ -30,6 +30,7 @@
       "./plugins/withMonorepoFix.js"
     ],
     "extra": {
+      "apiUrl": "https://project-management-api-c38i.onrender.com/api",
       "eas": {
         "projectId": "ea07fc64-bbe7-421c-8a16-19db9e54c832"
       }
